@@ -19,9 +19,6 @@ namespace ContactsApp
         {
             InitializeComponent();
 
-           
-
-
             Contact contact1 = new Contact
             {
                 Surname = "Reeves",
@@ -59,7 +56,7 @@ namespace ContactsApp
 
                 label7.Text = "List Number: " + n;
             
-           
+           ProjectManager.SaveToFile(project, ProjectManager.stringMyDocumentsPath);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -96,5 +93,25 @@ namespace ContactsApp
             label7.Text = "List Number: " + n;
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Contact contact4 = new Contact
+            {
+                Surname = "Unsaved",
+                Name = "File",
+                DateOfBirth = new DateTime(1995, 05, 06),
+                Email = "unsaved@file.com",
+                IDVkcom = "7654321",
+                phoneNumber = { Number = "79993332211" }
+            };
+            project.ContactsList.Add(contact4);
+
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+           project = ProjectManager.LoadFromFile(ProjectManager.stringMyDocumentsPath);
+        }
     }
 }
