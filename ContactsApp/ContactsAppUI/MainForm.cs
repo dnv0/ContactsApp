@@ -24,7 +24,7 @@ namespace ContactsApp
                 Surname = "Reeves",
                 Name = "Keeanu",
                 DateOfBirth = new DateTime(1990, 02, 26),
-                Email = "123mail.ru",
+                Email = "123@mail.ru",
                 IDVkcom = "1234567",
                 phoneNumber = {Number = "79991234567"}
             };
@@ -54,7 +54,7 @@ namespace ContactsApp
                 label5.Text = project.ContactsList[n].IDVkcom;
                 label6.Text = project.ContactsList[n].phoneNumber.Number;
 
-                label7.Text = "List Number: " + n;
+                label7.Text = "Contact Number: " + n;
             
            ProjectManager.SaveToFile(project, ProjectManager.stringMyDocumentsPath);
         }
@@ -74,7 +74,7 @@ namespace ContactsApp
             label5.Text = project.ContactsList[n].IDVkcom;
             label6.Text = project.ContactsList[n].phoneNumber.Number;
 
-            label7.Text = "List Number: " + n;
+            label7.Text = "Contact Number: " + n;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace ContactsApp
             label5.Text = project.ContactsList[n].IDVkcom;
             label6.Text = project.ContactsList[n].phoneNumber.Number;
 
-            label7.Text = "List Number: " + n;
+            label7.Text = "Contact Number: " + n;
         }
 
         private void button3_Click(object sender, EventArgs e)
