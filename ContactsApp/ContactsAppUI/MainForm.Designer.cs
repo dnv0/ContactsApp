@@ -35,7 +35,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.jDragControl1 = new JDragControl.JDragControl(this.components);
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
@@ -54,12 +53,15 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(311, 24);
+            this.label1.Location = new System.Drawing.Point(5, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 0;
@@ -68,7 +70,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(325, 55);
+            this.label2.Location = new System.Drawing.Point(19, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 1;
@@ -77,7 +79,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(315, 84);
+            this.label3.Location = new System.Drawing.Point(9, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 2;
@@ -86,7 +88,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(328, 114);
+            this.label4.Location = new System.Drawing.Point(22, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 3;
@@ -95,7 +97,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(303, 144);
+            this.label5.Location = new System.Drawing.Point(-3, 123);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 4;
@@ -104,7 +106,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(322, 176);
+            this.label6.Location = new System.Drawing.Point(16, 155);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 5;
@@ -142,6 +144,7 @@
             // 
             this.menuItem4.Index = 0;
             this.menuItem4.Text = "Add Contact";
+            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
             // 
             // menuItem5
             // 
@@ -167,42 +170,42 @@
             // 
             // textBoxSurename
             // 
-            this.textBoxSurename.Location = new System.Drawing.Point(369, 21);
+            this.textBoxSurename.Location = new System.Drawing.Point(63, 0);
             this.textBoxSurename.Name = "textBoxSurename";
             this.textBoxSurename.Size = new System.Drawing.Size(425, 20);
             this.textBoxSurename.TabIndex = 12;
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(369, 52);
+            this.textBoxName.Location = new System.Drawing.Point(63, 31);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(425, 20);
             this.textBoxName.TabIndex = 13;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(369, 111);
+            this.textBoxEmail.Location = new System.Drawing.Point(63, 90);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(425, 20);
             this.textBoxEmail.TabIndex = 14;
             // 
             // textBoxIdvkcom
             // 
-            this.textBoxIdvkcom.Location = new System.Drawing.Point(369, 141);
+            this.textBoxIdvkcom.Location = new System.Drawing.Point(63, 120);
             this.textBoxIdvkcom.Name = "textBoxIdvkcom";
             this.textBoxIdvkcom.Size = new System.Drawing.Size(425, 20);
             this.textBoxIdvkcom.TabIndex = 15;
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Location = new System.Drawing.Point(369, 173);
+            this.textBoxPhone.Location = new System.Drawing.Point(63, 152);
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(425, 20);
             this.textBoxPhone.TabIndex = 16;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(369, 81);
+            this.dateTimePicker1.Location = new System.Drawing.Point(63, 60);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(425, 20);
             this.dateTimePicker1.TabIndex = 17;
@@ -212,7 +215,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(24, 52);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(273, 446);
+            this.listBox1.Size = new System.Drawing.Size(273, 433);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -232,33 +235,55 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "Find:";
             // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(24, 499);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(63, 23);
+            this.buttonAdd.TabIndex = 20;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.textBoxPhone);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.textBoxIdvkcom);
+            this.panel1.Controls.Add(this.textBoxSurename);
+            this.panel1.Controls.Add(this.textBoxEmail);
+            this.panel1.Controls.Add(this.textBoxName);
+            this.panel1.Location = new System.Drawing.Point(316, 21);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(488, 222);
+            this.panel1.TabIndex = 21;
+            // 
             // MainForm
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(825, 534);
+            this.ClientSize = new System.Drawing.Size(825, 555);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBoxPhone);
-            this.Controls.Add(this.textBoxIdvkcom);
-            this.Controls.Add(this.textBoxEmail);
-            this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.textBoxSurename);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Menu = this.mainMenu1;
+            this.MinimumSize = new System.Drawing.Size(841, 594);
             this.Name = "MainForm";
             this.Text = "ContactsApp";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,7 +297,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private JDragControl.JDragControl jDragControl1;
         private System.Windows.Forms.MainMenu mainMenu1;
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem menuItem2;
@@ -291,6 +315,8 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
