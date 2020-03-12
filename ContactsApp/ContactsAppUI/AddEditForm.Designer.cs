@@ -187,6 +187,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddEditForm";
             this.Text = "Add/Edit Contact";
+            this.Load += new System.EventHandler(this.AddEditForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

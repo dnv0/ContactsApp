@@ -10,7 +10,7 @@ namespace ContactsApp
     /// <summary>
     /// Информация о контакте
     /// </summary>
-    public class Contact: ICloneable
+    public class Contact: ICloneable, IComparable<Contact>
     {
         // Фамилия
         //
@@ -59,6 +59,11 @@ namespace ContactsApp
 
         public Contact()
         { }
+
+        public int CompareTo(Contact other)
+        {
+            return string.Compare(this.Surname, other.Surname);
+        }
 
         /// <summary>
         /// Возвращает или устанавливает Фамилию

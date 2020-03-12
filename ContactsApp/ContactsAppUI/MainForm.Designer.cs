@@ -55,6 +55,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonRemove = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,6 +132,7 @@
             // 
             this.menuItem2.Index = 0;
             this.menuItem2.Text = "Exit";
+            this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
             // 
             // menuItem3
             // 
@@ -150,11 +153,13 @@
             // 
             this.menuItem5.Index = 1;
             this.menuItem5.Text = "Edit Contact";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
             // menuItem6
             // 
             this.menuItem6.Index = 2;
             this.menuItem6.Text = "Remove Contact";
+            this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
             // 
             // menuItem7
             // 
@@ -167,11 +172,13 @@
             // 
             this.menuItem8.Index = 0;
             this.menuItem8.Text = "About";
+            this.menuItem8.Click += new System.EventHandler(this.menuItem8_Click);
             // 
             // textBoxSurename
             // 
             this.textBoxSurename.Location = new System.Drawing.Point(63, 0);
             this.textBoxSurename.Name = "textBoxSurename";
+            this.textBoxSurename.ReadOnly = true;
             this.textBoxSurename.Size = new System.Drawing.Size(425, 20);
             this.textBoxSurename.TabIndex = 12;
             // 
@@ -179,6 +186,7 @@
             // 
             this.textBoxName.Location = new System.Drawing.Point(63, 31);
             this.textBoxName.Name = "textBoxName";
+            this.textBoxName.ReadOnly = true;
             this.textBoxName.Size = new System.Drawing.Size(425, 20);
             this.textBoxName.TabIndex = 13;
             // 
@@ -186,6 +194,7 @@
             // 
             this.textBoxEmail.Location = new System.Drawing.Point(63, 90);
             this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.ReadOnly = true;
             this.textBoxEmail.Size = new System.Drawing.Size(425, 20);
             this.textBoxEmail.TabIndex = 14;
             // 
@@ -193,6 +202,7 @@
             // 
             this.textBoxIdvkcom.Location = new System.Drawing.Point(63, 120);
             this.textBoxIdvkcom.Name = "textBoxIdvkcom";
+            this.textBoxIdvkcom.ReadOnly = true;
             this.textBoxIdvkcom.Size = new System.Drawing.Size(425, 20);
             this.textBoxIdvkcom.TabIndex = 15;
             // 
@@ -200,11 +210,13 @@
             // 
             this.textBoxPhone.Location = new System.Drawing.Point(63, 152);
             this.textBoxPhone.Name = "textBoxPhone";
+            this.textBoxPhone.ReadOnly = true;
             this.textBoxPhone.Size = new System.Drawing.Size(425, 20);
             this.textBoxPhone.TabIndex = 16;
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Location = new System.Drawing.Point(63, 60);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(425, 20);
@@ -265,6 +277,26 @@
             this.panel1.Size = new System.Drawing.Size(488, 222);
             this.panel1.TabIndex = 21;
             // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Location = new System.Drawing.Point(109, 499);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(63, 23);
+            this.buttonEdit.TabIndex = 22;
+            this.buttonEdit.Text = "Edit";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            // 
+            // buttonRemove
+            // 
+            this.buttonRemove.Location = new System.Drawing.Point(193, 499);
+            this.buttonRemove.Name = "buttonRemove";
+            this.buttonRemove.Size = new System.Drawing.Size(63, 23);
+            this.buttonRemove.TabIndex = 23;
+            this.buttonRemove.Text = "Remove";
+            this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
+            // 
             // MainForm
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -272,6 +304,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(825, 555);
+            this.Controls.Add(this.buttonRemove);
+            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.label7);
@@ -317,6 +351,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Button buttonRemove;
     }
 }
 

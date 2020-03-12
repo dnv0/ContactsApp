@@ -42,6 +42,7 @@ namespace ContactsApp
                 _сontact.DateOfBirth = value.DateOfBirth;
                 _сontact.Email = value.Email;
                 _сontact.IDVkcom = value.IDVkcom;
+
             }
         }
 
@@ -76,7 +77,7 @@ namespace ContactsApp
                 buttonOk.Enabled = false;
                 ToolTip okToolTip = new ToolTip();
 
-                okToolTip.Show("Заполните форму корректными значениями, чтобы добавить контакт.", buttonOk,
+                okToolTip.Show("Form has incorrect values.", buttonOk,
                     (Point)(textBoxSurename.Size + new Size(-500, 10)), 1000);
 
 
@@ -236,7 +237,7 @@ namespace ContactsApp
                 else
                 {
                     countException++;
-                    phoneToolTip.Show("Вы ввели пустую строку.Повторите ввод.", textBoxPhone,
+                    phoneToolTip.Show("Filed is empty.", textBoxPhone,
                         (Point)(textBoxPhone.Size + new Size(-400, 10)), 1000);
 
                     // Переключаем флаг в false и запрещаем нажимать кнопку ОК.
@@ -354,7 +355,7 @@ namespace ContactsApp
         /// <summary>
         /// Заполняет форму для дальнейшего редактирования данных.
         /// </summary>
-        private void AddEditContactForm_Load(object sender, EventArgs e)
+        private void AddEditForm_Load(object sender, EventArgs e)
         {
             // Если выбран какой-либо контакт.
             //

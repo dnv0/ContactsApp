@@ -24,10 +24,13 @@ namespace ContactsApp
             //
             _project = ProjectManager.LoadFromFile(ProjectManager.stringMyDocumentsPath);
 
+            _project.ContactsList.Sort();
             // Загрузка в listBox контактов из ContactList
             //
             listBox1.DataSource = _project.ContactsList;
             listBox1.DisplayMember = "Surname";
+            listBox1.ValueMember = "Name";
+
 
         }
 
@@ -68,13 +71,80 @@ namespace ContactsApp
             {
                 var contact = newForm.Contact;
                 _project.ContactsList.Add(contact);
-
+                _project.ContactsList.Sort();
                 ProjectManager.SaveToFile(_project, ProjectManager.stringMyDocumentsPath);
 
                 listBox1.DataSource = null;
                 listBox1.DataSource = _project.ContactsList;
                 listBox1.DisplayMember = "Surname";
             }
+        }
+
+        /// <summary>
+        /// Функция, выполняющая редактирование данных.
+        /// </summary>
+        private void EditContact()
+        {
+            if (listBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Choose the contact to edit.", "Edit");
+            }
+
+            // Открытие окна, загрузка выбранного контакта
+            //
+            Contact selectedContact = (Contact)listBox1.SelectedItem;
+            var newForm = new AddEditForm();
+            newForm.Contact = selectedContact;
+
+            var resultOfDialog = newForm.ShowDialog();
+
+            if(resultOfDialog == DialogResult.OK)
+            {
+                _project.ContactsList[listBox1.SelectedIndex] = newForm.Contact;
+                ProjectManager.SaveToFile(_project, ProjectManager.stringMyDocumentsPath);
+                UpdateListBox();
+            }
+
+        }
+
+        /// <summary>
+        /// Функция удаления контакта.
+        /// </summary>
+        private void RemoveContact()
+        {
+            int index = listBox1.SelectedIndex;
+            if (index == -1)
+            {
+                MessageBox.Show("Choose the contact to remove.", "Remove");
+            }
+
+            // Если список не пуст.
+            //
+            if (_project.ContactsList.Count > 0)
+            {
+                string removeThisContact = "Do you really want to remove this contact: " + textBoxSurename.Text + "?";
+
+                var result = MessageBox.Show(removeThisContact, "Remove", MessageBoxButtons.OKCancel);
+
+                if (result == DialogResult.OK)
+                {
+                    _project.ContactsList.RemoveAt(index);
+                    ProjectManager.SaveToFile(_project, ProjectManager.stringMyDocumentsPath);
+                    UpdateListBox();
+                }
+                
+            }
+        }
+
+
+        /// <summary>
+        /// Обновление ListBox
+        /// </summary>
+        private void UpdateListBox()
+        {
+            listBox1.DataSource = null;
+            listBox1.DataSource = _project.ContactsList;
+            listBox1.DisplayMember = "Surname";
         }
 
         /// <summary>
@@ -91,6 +161,37 @@ namespace ContactsApp
         private void menuItem4_Click(object sender, EventArgs e)
         {
             AddContact();
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            EditContact();
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            RemoveContact();
+        }
+
+        private void menuItem5_Click(object sender, EventArgs e)
+        {
+            EditContact();
+        }
+
+        private void menuItem6_Click(object sender, EventArgs e)
+        {
+            RemoveContact();
+        }
+
+        private void menuItem8_Click(object sender, EventArgs e)
+        {
+            var newForm = new AboutForm();
+            newForm.Show();
+        }
+
+        private void menuItem2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
