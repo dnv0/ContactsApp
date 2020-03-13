@@ -26,15 +26,6 @@ namespace ContactsApp
         {
             Project sortedProject = new Project();
 
-            //for (int i = 0; i < project.ContactsList.Count; i++)
-            //{
-            //    if (project.ContactsList[i].Surname.Contains(substring) ||
-            //        project.ContactsList[i].Name.Contains(substring))
-            //    {
-            //        sortedProject.ContactsList.Add(project.ContactsList[i]);
-            //    }
-            //}
-
             foreach (Contact item in project.ContactsList)
             {
                 if (item.Surname.Contains(substring) || item.Name.Contains(substring))
@@ -53,6 +44,28 @@ namespace ContactsApp
             sortedProject.ContactsList.Sort();
 
             return sortedProject;
+        }
+
+        /// <summary>
+        /// Функция, выполняющая поиск людей, у который день рождения в указанную дату.
+        /// </summary>
+        /// <param name="project">Проект, содержащий список людей, среди который будем искать у кого день рождения.</param>
+        /// <param name="today">Дата дня рождения.</param>
+        /// <returns>Проект, хранящий список именинников.</returns>
+        public static Project Birthday(Project project, DateTime today)
+        {
+            Project birthdayList = new Project();
+
+            for (int i = 0; i < project.ContactsList.Count; i++)
+            {
+                if (project.ContactsList[i].DateOfBirth.Day == today.Day &&
+                    project.ContactsList[i].DateOfBirth.Month == today.Month)
+                {
+                    birthdayList.ContactsList.Add(project.ContactsList[i]);
+                }
+            }
+
+            return birthdayList;
         }
     }
 }

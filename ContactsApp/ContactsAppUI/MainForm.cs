@@ -31,7 +31,17 @@ namespace ContactsApp
             listBox1.DisplayMember = "Surname";
             listBox1.ValueMember = "Name";
 
-
+            Project birthContact = Project.Birthday(_project, DateTime.Today);
+            if (birthContact.ContactsList.Count != 0)
+            {
+                panel2.Visible = true;
+                for (int i = 0; i < birthContact.ContactsList.Count; i++)
+                {
+                    label9.Text = label9.Text + birthContact.ContactsList[i].Surname + ", ";
+                }
+            }
+            else panel2.Visible = false;
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -210,6 +220,17 @@ namespace ContactsApp
             {
                 _project = ProjectManager.LoadFromFile(ProjectManager.stringMyDocumentsPath);
                 UpdateListBox();
+            }
+        }
+
+        /// <summary>
+        /// Удаление контакта по нажатию клавиши Delete.
+        /// </summary>
+        private void ContactsListBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                RemoveContact();
             }
         }
     }
