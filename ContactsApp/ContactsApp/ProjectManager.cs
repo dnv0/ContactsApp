@@ -83,7 +83,6 @@ namespace ContactsApp
                     project = (Project)serializer.Deserialize<Project>(reader);
                 }
             }
-
             return project;
         }
     }

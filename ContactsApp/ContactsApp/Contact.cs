@@ -75,7 +75,7 @@ namespace ContactsApp
             {
                 // При некорректной длинне Фамилии, выводим сообщение об ошибке
                 //
-                if (value.Length > 50 || value.Length < 1)
+                if (value.Length > 50 || value.Length < 2)
                 {
                     throw new ArgumentException(
                         "Фамилия состоит из менее 2 или более 50 символов.");
@@ -108,7 +108,7 @@ namespace ContactsApp
             {
                 // При некорректной длинне Имени, выводим сообщение об ошибке
                 //
-                if (value.Length > 50 || value.Length < 1)
+                if (value.Length > 50 || value.Length < 2)
                 {
                     throw new ArgumentException(
                         "Имя состоит из менее 2 или более 50 символов.");
