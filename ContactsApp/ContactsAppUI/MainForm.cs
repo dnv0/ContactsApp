@@ -143,8 +143,11 @@ namespace ContactsApp
         private void UpdateListBox()
         {
             listBox1.DataSource = null;
-            listBox1.DataSource = _project.ContactsList;
-            listBox1.DisplayMember = "Surname";
+            if(_project != null)
+            {
+                listBox1.DataSource = _project.ContactsList;
+                listBox1.DisplayMember = "Surname";
+            }
         }
 
         /// <summary>
@@ -192,6 +195,22 @@ namespace ContactsApp
         private void menuItem2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if(textBox1.Text != "")
+            {
+                _project = Project.Sort(_project, textBox1.Text);
+                UpdateListBox();
+
+                _project = ProjectManager.LoadFromFile(ProjectManager.stringMyDocumentsPath);
+            }
+            else
+            {
+                _project = ProjectManager.LoadFromFile(ProjectManager.stringMyDocumentsPath);
+                UpdateListBox();
+            }
         }
     }
 }
